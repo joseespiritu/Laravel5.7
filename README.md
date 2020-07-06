@@ -11,7 +11,9 @@ Introduccion a Laravel 5.7 y proyecto demo
 1 Dentro de http.conf verificar _DocumentRoot "C:/xampp/htdocs"_
 2 Dentro de _C:\Windows\System32\drivers\etc_ modificar con permisos de administrador el archivo _host_ añadiendo un nuevo acceso local _127.0.0.1 aprendiendo-laravel.com.example_
 3 Dentro de _C:\xampp\apache\conf\extra_ modificar _httpd-vhosts.conf_ y añadir
-```<VirtualHost *:80>
+```
+<VirtualHost *:80>
 ServerName aprendiendo-laravel.com.example
 DocumentRoot C:\xampp\htdocs\Laravel5.7\aprendiendo-laravel\public
-</VirtualHost>```
+</VirtualHost>
+```
