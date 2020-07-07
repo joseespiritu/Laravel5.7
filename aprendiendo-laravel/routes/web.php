@@ -27,3 +27,9 @@ Route::get('/mostrarFecha',function(){
         'titulo' => $titulo,
     ));
 });
+
+Route::get('/pelicula/{titulo?}',function($titulo = 'No hay una pelicula seleccionada'){
+   return view('pelicula', array(
+      'titulo' => $titulo,
+   ));
+});
