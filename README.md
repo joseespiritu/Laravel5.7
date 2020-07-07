@@ -17,3 +17,10 @@ ServerName aprendiendo-laravel.com.example
 DocumentRoot C:\xampp\htdocs\Laravel5.7\aprendiendo-laravel\public
 </VirtualHost>
 ```
+
+### Comandos artisan:
+* ```
+php artisan list
+php artisan route:list
+php artisan make:controller PruebasController
+```
