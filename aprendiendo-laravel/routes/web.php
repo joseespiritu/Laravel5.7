@@ -11,17 +11,21 @@
 |
 */
 
+use App\Http\Controllers\PeliculaController;
+
 Route::get('/', function () {
     echo "<h1>Hola Mundo</h1>"; 
     return view('welcome');
 });
+
+Route::get('/peliculas/{pagina?}','PeliculaController@index');
 
 //GET: Conseguir datos
 //POST: Guardar datos
 //PUT: Actualizar recursos
 //DELETE: Eliminar recursos
 
-Route::get('/mostrarFecha',function(){
+/* Route::get('/mostrarFecha',function(){
     $titulo = "Estoy mostrando la fecha";
     return view('mostrar-fecha', array(
         'titulo' => $titulo,
@@ -50,4 +54,4 @@ Route::get('/listado-peliculas',function(){
 
 Route::get('/pagina-generica',function(){
    return view('pagina');
-});
+}); */
