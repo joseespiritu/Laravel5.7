@@ -41,7 +41,9 @@ Route::get('/pelicula/{titulo}/{year?}',function($titulo = 'No hay una pelicula 
 Route::get('/listado-peliculas',function(){
     $titulo = "Listado de peliculas";
     $listado = array('batman', 'spiderman', 'Gran torino');
+    $director = '';
     return view('peliculas.listado')
                 ->with('titulo', $titulo)
-                ->with('listado', $listado);
+                ->with('listado', $listado)
+                ->with('director', $director);
 });
