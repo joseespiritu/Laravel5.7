@@ -1,3 +1,5 @@
+@include('includes.header')
+
 <!--Imprimir por pantalla-->
 <h1>{{$titulo}}</h1>
 <h2>{{$listado[2]}}</h2>
@@ -43,3 +45,5 @@ El numero es: {{$i}} <br/>
 @foreach($listado as $pelicula)
 <p>{{$pelicula}}</p>
 @endforeach
+
+@include('includes.footer')
