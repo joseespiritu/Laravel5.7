@@ -47,3 +47,7 @@ Route::get('/listado-peliculas',function(){
                 ->with('listado', $listado)
                 ->with('director', $director);
 });
+
+Route::get('/pagina-generica',function(){
+   return view('pagina');
+});
