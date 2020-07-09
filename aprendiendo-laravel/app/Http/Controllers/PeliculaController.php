@@ -17,7 +17,10 @@ class PeliculaController extends Controller
     }
 
     public function detalle(){
-        echo "<h1>Detalle de la pelicula</h1>";
-        die();
+        return view('pelicula.detalle');
+    }
+
+    public function redirigir(){
+        return redirect()->route('detalle.pelicula');
     }
 }
