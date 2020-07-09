@@ -23,4 +23,5 @@ DocumentRoot C:\xampp\htdocs\Laravel5.7\aprendiendo-laravel\public
 php artisan list
 php artisan route:list
 php artisan make:controller PruebasController
+php artisan make:controller UsuarioController --resource
 ```

@@ -19,6 +19,13 @@ Route::get('/', function () {
 });
 
 Route::get('/peliculas/{pagina?}','PeliculaController@index');
+Route::get('/detalle',[
+    'uses' => 'PeliculaController@detalle',
+    'as' => 'detalle.pelicula'
+]);
+
+/* Rutas de tipo resource */
+Route::resource('usuario','UsuarioController');
 
 //GET: Conseguir datos
 //POST: Guardar datos
