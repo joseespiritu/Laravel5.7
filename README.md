@@ -24,4 +24,5 @@ php artisan list
 php artisan route:list
 php artisan make:controller PruebasController
 php artisan make:controller UsuarioController --resource
+php artisan make:middleware TestYear
 ```
