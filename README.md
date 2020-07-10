@@ -36,3 +36,9 @@ php artisan make:refresh
 
 ### Conexion a la Base de datos:
 *  Archivo _.env_
+
+*  Rellenar la base de datos con Seeders
+```
+php artisan make:seed frutas_seed
+php artisan db:seed --class=frutas_seed
+```
