@@ -26,3 +26,13 @@ php artisan make:controller PruebasController
 php artisan make:controller UsuarioController --resource
 php artisan make:middleware TestYear
 ```
+* Creacion de Bases de datos:
+```
+php artisan make:migration create_usuarios_table --table=usuarios
+php artisan make:migration
+php artisan make:rollback
+php artisan make:refresh
+```
+
+### Conexion a la Base de datos:
+*  Archivo _.env_
