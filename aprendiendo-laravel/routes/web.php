@@ -30,6 +30,9 @@ Route::get('/redirigir','PeliculaController@redirigir');
 /* Rutas de tipo resource */
 Route::resource('usuario','UsuarioController');
 
+Route::get('/formulario','PeliculaController@formulario');
+Route::post('/recibir','PeliculaController@recibir');
+
 //GET: Conseguir datos
 //POST: Guardar datos
 //PUT: Actualizar recursos
