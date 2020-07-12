@@ -39,7 +39,9 @@ Route::group(['prefix'=>'frutas'], function(){
     Route::get('detail/{id}', 'FrutaController@detail');
     Route::get('crear', 'FrutaController@create');
     Route::post('save', 'FrutaController@save');
+    Route::post('update', 'FrutaController@update');
     Route::get('delete/{id}', 'FrutaController@delete');
+    Route::get('editar/{id}', 'FrutaController@edit');
 });
 
 //GET: Conseguir datos
