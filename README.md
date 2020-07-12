@@ -9,7 +9,10 @@ Introduccion a Laravel 5.7 y proyecto demo
 
 ## Configuracion de Virtual Host en XAMPP
 1. Dentro de http.conf verificar _DocumentRoot "C:/xampp/htdocs"_
-2. Dentro de _C:\Windows\System32\drivers\etc_ modificar con permisos de administrador el archivo _host_ añadiendo un nuevo acceso local _127.0.0.1 aprendiendo-laravel.com.example_
+2. Dentro de _C:\Windows\System32\drivers\etc_ modificar con permisos de administrador el archivo _host_ añadiendo un nuevo acceso local:
+```
+127.0.0.1 aprendiendo-laravel.com.example
+```
 3. Dentro de _C:\xampp\apache\conf\extra_ modificar _httpd-vhosts.conf_ y añadir
 ```
 <VirtualHost *:80>
@@ -41,4 +44,17 @@ php artisan make:refresh
 ```
 php artisan make:seed frutas_seed
 php artisan db:seed --class=frutas_seed
+```
+
+
+# Proyecto Laravel
+```
+<VirtualHost *:80>
+ServerName proyecto-laravel.com
+DocumentRoot C:\xampp\htdocs\Laravel5.7\proyecto-laravel\public
+</VirtualHost>
+
+Dentro de C:\Windows\System32\drivers\etc\host:
+127.0.0.1 proyecto-laravel.com
+
 ```
