@@ -58,3 +58,9 @@ Dentro de C:\Windows\System32\drivers\etc\host:
 127.0.0.1 proyecto-laravel.com
 
 ```
+* Creacion de Modelos:
+```
+php artisan make:model Image
+php artisan make:model Comment
+php artisan make:model Like
+```
