@@ -16,6 +16,10 @@ CREATE TABLE IF NOT EXISTS users(
     CONSTRAINT pk_users PRIMARY KEY(id)
 ) ENGINE=InnoDb DEFAULT CHARACTER SET=utf8;
 
+INSERT INTO users VALUES(Null, 'user', 'jose', 'espiritu', 'joseespiritu', 'jose@jose.com', 'pass', null, CURTIME(), CURTIME(), null);
+INSERT INTO users VALUES(Null, 'user', 'juan', 'lopez', 'juanlopez', 'juan@juan.com', 'pass', null, CURTIME(), CURTIME(), null);
+INSERT INTO users VALUES(Null, 'user', 'manolo', 'garcia', 'manologarcia', 'manolo@manolo.com', 'pass', null, CURTIME(), CURTIME(), null);
+
 CREATE TABLE IF NOT EXISTS images(
     id int(255) auto_increment not null,
     user_id int(255),
@@ -26,6 +30,11 @@ CREATE TABLE IF NOT EXISTS images(
     CONSTRAINT pk_images PRIMARY KEY(id),
     CONSTRAINT fk_images_users FOREIGN KEY(user_id) REFERENCES users(id)
 ) ENGINE=InnoDb DEFAULT CHARACTER SET=utf8;
+
+INSERT INTO images VALUES(null,1,'test.jpg','descripcion de prueba 1', CURTIME(), CURTIME());
+INSERT INTO images VALUES(null,1,'playa.jpg','descripcion de prueba 2', CURTIME(), CURTIME());
+INSERT INTO images VALUES(null,1,'arena.jpg','descripcion de prueba 3', CURTIME(), CURTIME());
+INSERT INTO images VALUES(null,3,'familia.jpg','descripcion de prueba 4', CURTIME(), CURTIME());
 
 CREATE TABLE IF NOT EXISTS comments(
     id int(255) auto_increment not null,
@@ -39,6 +48,10 @@ CREATE TABLE IF NOT EXISTS comments(
     CONSTRAINT fk_comments_images FOREIGN KEY(image_id) REFERENCES images(id)
 ) ENGINE=InnoDb DEFAULT CHARACTER SET=utf8;
 
+INSERT INTO comments VALUES(null, 1, 4, 'Buena foto de familia', CURTIME(), CURTIME());
+INSERT INTO comments VALUES(null, 2, 1, 'Buena foto de playa', CURTIME(), CURTIME());
+INSERT INTO comments VALUES(null, 2, 4, 'que bueno!!!', CURTIME(), CURTIME());
+
 CREATE TABLE IF NOT EXISTS likes(
     id int(255) auto_increment not null,
     user_id int(255),
@@ -49,3 +62,9 @@ CREATE TABLE IF NOT EXISTS likes(
     CONSTRAINT fk_likes_users FOREIGN KEY(user_id) REFERENCES users(id),
     CONSTRAINT fk_likes_images FOREIGN KEY(image_id) REFERENCES images(id)
 ) ENGINE=InnoDb DEFAULT CHARACTER SET=utf8;
+
+INSERT INTO likes VALUES(null, 1, 4, CURTIME(), CURTIME());
+INSERT INTO likes VALUES(null, 2, 4, CURTIME(), CURTIME());
+INSERT INTO likes VALUES(null, 3, 1, CURTIME(), CURTIME());
+INSERT INTO likes VALUES(null, 3, 2, CURTIME(), CURTIME());
+INSERT INTO likes VALUES(null, 2, 1, CURTIME(), CURTIME());
