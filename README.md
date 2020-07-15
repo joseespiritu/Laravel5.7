@@ -64,3 +64,7 @@ php artisan make:model Image
 php artisan make:model Comment
 php artisan make:model Like
 ```
+* Creacion de Autenticacion:
+```
+php artisan make:auth
+```
