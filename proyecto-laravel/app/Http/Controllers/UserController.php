@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
@@ -35,6 +37,19 @@ class UserController extends Controller
             $user->surname = $surname;
             $user->nick = $nick;
             $user->email = $email;
+
+            /* Subir la imagen */
+            $image_path = $request->file('image_path');
+            if($image_path){
+                /* Poner nombre unico */
+                $image_path_name = time().$image_path->getClientOriginalName();
+
+                /* Guardar en la carpeta Storage/app/users */
+                Storage::disk('users')->put($image_path_name, File::get($image_path));
+
+                /* Setear el nombre de la imagen el objeto */
+                $user->image = $image_path_name;
+            }
 
             /* Ejecutar consulta y cambios en la BD */
             $user->update();
