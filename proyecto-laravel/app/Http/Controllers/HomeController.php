@@ -26,7 +26,6 @@ class HomeController extends Controller
     {
         $images = Image::orderBy('id','desc')->get();
         
-        
         return view('home', [
             'images' => $images
         ]);
