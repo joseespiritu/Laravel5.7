@@ -27,14 +27,20 @@
                         <div class="image-container">
                             <img src="{{ route('image.file',['filename'=> $image->image_path])}}" alt="Image"/>
                         </div>
-                        <div class="likes">
-
-                        </div>
+    
                         <div class="description">
                             <span class="nickname">{{ '@'.$image->user->nick }}</span>            
                         <p>
                             {{ $image->description }}
                         </p>
+                        </div>
+                        <div class="likes">
+                            <img src="{{ asset('img/heart-black.png')}}" alt="heart"/>
+                        </div>
+                        <div class="comments">
+                            <a href="" class="btn btn-sm btn-warning btn-comments">
+                                Comentarios
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -42,7 +48,7 @@
             <!-- PAGINACION -->
             <div class="clearfix"></div>
             {{$images->links()}}
-            </div>
+        </div>
     </div>
 </div>
 @endsection
