@@ -68,3 +68,27 @@ php artisan make:model Like
 ```
 php artisan make:auth
 ```
+### Creacion de Providers
+1.  Provider para utilizar Helpers
+```
+php artisan make:provider FormatTimeServiceProvider
+```
+2.  Incluir el metodo register en el Provider
+```
+public function register()
+{
+    require_once app_path() . '/Helpers/FormatTime.php';
+}
+```
+3.  Entrar al directorio config/app.php y añadir el provider al array de providers:
+```
+App\Providers\FormatTimeServiceProvider::class,
+```
+4.  Y añadir un alias de nuestro helper:
+```
+'FormatTime' => App\Helpers\FormatTime::class,
+```
+5.  Ya se puede utilizar el provider:
+```
+{{ \FormatTime::LongTimeFilter($entrada->created_at) }}
+```
