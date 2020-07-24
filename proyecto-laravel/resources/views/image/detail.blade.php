@@ -34,10 +34,11 @@
                             {{ $image->description }}
                         </p>
                         </div>
+
                         <div class="likes">
                             <img src="{{ asset('img/heart-black.png')}}" alt="heart"/>
                         </div>
-                        <div class="clearfix">
+                        <div class="clearfix"></div>
                             <div class="comments">
                                 <h2>Comentarios ({{count($image->comments)}})</h2>
                                 <hr>
@@ -57,8 +58,18 @@
                                         Enviar
                                     </button>
                                 </form>
+
+                                <hr>
+                                @foreach($image->comments as $comment)
+                                    <div class="comment">
+                                        <span class="nickname">{{ '@'.$comment->user->nick }}</span>
+                                        <span class="nickname date"> {{' | '.\FormatTime::LongTimeFilter($comment->created_at)}}  </span>            
+                                        <p>
+                                            {{ $comment->content }}
+                                        </p>
+                                    </div>
+                                @endforeach
                             </div>
-                        </div>
                     </div>
                 </div>
 
