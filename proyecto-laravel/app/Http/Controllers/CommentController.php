@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Comment;
 
 class CommentController extends Controller
 {
@@ -12,13 +13,28 @@ class CommentController extends Controller
 
     public function save(Request $request){
 
+        // Validacion
         $validate = $this->validate($request, [
             'image_id' => 'integer|required',
             'content' => 'string|required',
         ]);
 
+        // Recoger datos
+        $user = \Auth::user();
         $image_id = $request->input('image_id');
         $content = $request->input('content');
+
+        // Asigno los valores a mi nuevo objeto a guardar
+        $comment = new Comment();
+        $comment->user_id = $user->id;
+        $comment->image_id = $image_id;
+        $comment->content = $content;
+
+        // Guardar en la bd
+        $comment->save();
+
+        return redirect()->route('image.detail', ['id' => $image_id ])
+        ->with(['message' => "Has publicado tu comentario correctamente"]);
 
     }
 }
