@@ -28,7 +28,6 @@ class LikeController extends Controller
             // Guardar
             $like->save();
     
-            var_dump($like);
             return response()->json([
                 'like' => $like
             ]);
@@ -42,6 +41,27 @@ class LikeController extends Controller
     }
 
     public function dislike($image_id){
+        // Recoger datos del usuario y la imagen
+        $user = \Auth::user();
 
+        // Condicion para ver si ya existe el like y no duplicarlo
+        $like = Like::where('user_id', $user->id)
+                        ->where('image_id', $image_id)
+                        ->first();
+        
+        if($like){  
+            // Eliminar like
+            $like->delete();
+    
+            return response()->json([
+                'like' => $like,
+                'message' => 'Has dado dislike correctamente',
+            ]);
+
+        } else {
+            return response()->json([
+                'message' => "El like no existe"
+            ]);
+        }
     }
 }
