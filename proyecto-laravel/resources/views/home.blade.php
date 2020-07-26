@@ -48,9 +48,9 @@
                             @endforeach
 
                             @if($user_like)
-                                <img src="{{ asset('img/heart-red.png')}}" alt="heart" class="btn-dislike"/>
+                                <img src="{{ asset('img/heart-red.png')}}" data-id="{{$image->id}}" alt="heart" class="btn-dislike"/>
                             @else
-                                <img src="{{ asset('img/heart-black.png')}}" alt="heart" class="btn-like"/>
+                                <img src="{{ asset('img/heart-black.png')}}" data-id="{{$image->id}}" alt="heart" class="btn-like"/>
                             @endif
                             <span class="number_likes">{{count($image->likes)}}</span>
                         </div>
