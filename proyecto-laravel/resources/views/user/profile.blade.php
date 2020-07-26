@@ -5,7 +5,19 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-            @include('includes.message')
+            <div class="data-user">
+                @if($user->image)
+                <div class="container-avatar">
+                    <img src="{{ route('user.avatar',['filename' => $user->image]) }}" alt="Imagen Usuario" class="avatar" />
+                </div>
+                @endif
+
+                <div class="user-info">
+                    <h1>{{'@'.$user->nick}}</h1>
+                    <h2>{{$user->name . ' ' . $user->surname}}</h2>
+                    <p>{{'Se unió: Hace '.\FormatTime::LongTimeFilter($user->created_at)}}</p>
+                </div>
+            </div>
 
             @foreach($user->images as $image)
             @include('includes.image',['image' => $image])
