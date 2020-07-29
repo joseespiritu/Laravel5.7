@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2020 a las 23:20:54
+-- Tiempo de generación: 29-07-2020 a las 03:33:36
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -11,9 +11,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-CREATE DATABASE IF NOT EXISTS laravel_master;
-USE laravel_master;
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -47,7 +44,9 @@ CREATE TABLE `comments` (
 INSERT INTO `comments` (`id`, `user_id`, `image_id`, `content`, `created_at`, `updated_at`) VALUES
 (1, 1, 4, 'Buena foto de familia', '2020-07-14 06:52:16', '2020-07-14 06:52:16'),
 (2, 2, 1, 'Buena foto de playa', '2020-07-14 06:52:16', '2020-07-14 06:52:16'),
-(3, 2, 4, 'que bueno!!!', '2020-07-14 06:52:16', '2020-07-14 06:52:16');
+(3, 2, 4, 'que bueno!!!', '2020-07-14 06:52:16', '2020-07-14 06:52:16'),
+(4, 6, 7, 'dsada dasd', '2020-07-24 01:37:27', '2020-07-24 01:37:27'),
+(6, 6, 7, 'cdscsd', '2020-07-28 02:03:09', '2020-07-28 02:03:09');
 
 -- --------------------------------------------------------
 
@@ -72,7 +71,9 @@ INSERT INTO `images` (`id`, `user_id`, `image_path`, `description`, `created_at`
 (1, 1, 'test.jpg', 'descripcion de prueba 1', '2020-07-14 06:52:16', '2020-07-14 06:52:16'),
 (2, 1, 'playa.jpg', 'descripcion de prueba 2', '2020-07-14 06:52:16', '2020-07-14 06:52:16'),
 (3, 1, 'arena.jpg', 'descripcion de prueba 3', '2020-07-14 06:52:16', '2020-07-14 06:52:16'),
-(4, 3, 'familia.jpg', 'descripcion de prueba 4', '2020-07-14 06:52:16', '2020-07-14 06:52:16');
+(4, 3, 'familia.jpg', 'descripcion de prueba 4', '2020-07-14 06:52:16', '2020-07-14 06:52:16'),
+(6, 6, '1595330362WTR.jpg', 'Logo', '2020-07-21 11:19:22', '2020-07-21 11:19:22'),
+(7, 6, '1595901895oso.jpg', 'Soy un oso', '2020-07-22 02:44:38', '2020-07-28 02:04:55');
 
 -- --------------------------------------------------------
 
@@ -97,7 +98,13 @@ INSERT INTO `likes` (`id`, `user_id`, `image_id`, `created_at`, `updated_at`) VA
 (2, 2, 4, '2020-07-14 06:52:16', '2020-07-14 06:52:16'),
 (3, 3, 1, '2020-07-14 06:52:16', '2020-07-14 06:52:16'),
 (4, 3, 2, '2020-07-14 06:52:16', '2020-07-14 06:52:16'),
-(5, 2, 1, '2020-07-14 06:52:16', '2020-07-14 06:52:16');
+(5, 2, 1, '2020-07-14 06:52:16', '2020-07-14 06:52:16'),
+(10, 5, 1, '2020-07-26 13:27:54', '2020-07-26 13:27:54'),
+(11, 5, 2, '2020-07-26 13:31:22', '2020-07-26 13:31:22'),
+(14, 5, 7, '2020-07-26 13:36:34', '2020-07-26 13:36:34'),
+(15, 5, 6, '2020-07-26 13:50:05', '2020-07-26 13:50:05'),
+(17, 5, 4, '2020-07-26 13:50:08', '2020-07-26 13:50:08'),
+(18, 5, 3, '2020-07-26 13:50:09', '2020-07-26 13:50:09');
 
 -- --------------------------------------------------------
 
@@ -128,8 +135,8 @@ INSERT INTO `users` (`id`, `rol`, `name`, `surname`, `nick`, `email`, `password`
 (2, 'user', 'juan', 'lopez', 'juanlopez', 'juan@juan.com', 'pass', NULL, '2020-07-14 06:52:16', '2020-07-14 06:52:16', NULL),
 (3, 'user', 'manolo', 'garcia', 'manologarcia', 'manolo@manolo.com', 'pass', NULL, '2020-07-14 06:52:16', '2020-07-14 06:52:16', NULL),
 (4, NULL, 'Admin', NULL, NULL, 'admin@admin.com', '$2y$10$gujvG9XztB41uDJUklRWe.S/cG9wUam0MEbLD9GH8XVO.z0T4dbN6', NULL, '2020-07-15 11:24:37', '2020-07-15 11:24:37', 'jjxvZY8bQtB048N9rOnB3pEsseprKzGsW18EWs1AHprSBEXIR1aTW7vIPlmR'),
-(5, NULL, 'David', 'Martinez', 'davidm', 'david@david.com', '$2y$10$0IVLzMoz5G/NQIo.AV3w3esVBh9PfJZEcHNwvL10LuYACFCG9Na9G', NULL, '2020-07-15 11:36:52', '2020-07-15 11:36:52', 'ifnZDBJQgl8yLa67UuVOe6HFsoJAiCoVmpDkjJGR0VAV6mBYqJSGOMljFy2X'),
-(6, 'user', 'Paco', 'Sanchez', 'pacos', 'paco@paco.com', '$2y$10$xOx9W5BUv55pOxwPPPjkEek.lo/aUCzERzTzzM36SIoCNOxLQ.VFu', NULL, '2020-07-15 11:39:13', '2020-07-15 11:39:13', NULL);
+(5, NULL, 'David', 'Martinez', 'davidm', 'david@david.com', '$2y$10$0IVLzMoz5G/NQIo.AV3w3esVBh9PfJZEcHNwvL10LuYACFCG9Na9G', '1595555319AAL.jpg', '2020-07-15 11:36:52', '2020-07-24 01:48:39', 'iHEXkAULEzmXjZTFMqMNH03XG4K4wGrvp4FdnDKttqHlmOqlkb5KKInCdEHs'),
+(6, 'user', 'Paco', 'Sanchez', 'paco', 'paco@paco.com', '$2y$10$xOx9W5BUv55pOxwPPPjkEek.lo/aUCzERzTzzM36SIoCNOxLQ.VFu', '1595116184WTR.jpg', '2020-07-15 11:39:13', '2020-07-18 23:49:44', 'e7UZ3d5h8KrMA0hi2agMY3GhFn9Fdlk7RoR1rtBV098nZ9q4Hz6Stvk0LAPJ');
 
 --
 -- Índices para tablas volcadas
@@ -172,19 +179,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
